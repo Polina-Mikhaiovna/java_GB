@@ -9,7 +9,7 @@ public class Program {
 	public static void main(String[] args) {
 		int k = getK();
 		System.out.println(k);
-		int[] coefficients = new int[k];
+		int[] coefficients = new int[k+1];
 		coefficients = random(coefficients);
 		printIntArray(coefficients);
 		printPolinom(coefficients);
@@ -26,31 +26,32 @@ public class Program {
 		return k;
 	}
 	
-	public static int[] random(int[] randomAarray) {
+	public static int[] random(int[] randomArray) {
 		Random r = new Random();
-		for (int i = 0; i < randomAarray.length; i++) {
-			randomAarray[i] = r.nextInt(100) + 1;
+		for (int i = 0; i < randomArray.length; i++) {
+			randomArray[i] = r.nextInt(100) + 1;
 		}
 
-		return randomAarray;
+		return randomArray;
 	}
 
 	public static void printIntArray(int[] array){
 		for(int i = 0; i < array.length; i++)
-			System.out.printf("%d ", array[i]);
+			if (i == array.length - 1) System.out.printf("%d\n", array[i]);
+			else System.out.printf("%d ", array[i]);
 	}
 
 	public static void printPolinom(int[] array){
-
-		for (int i = 0; i <= array.length; i++) {
-			if(i >= 1){
-				if(array[i] == 1){
-					System.out.printf("x**%d", i);
-					continue;
+		int l = array.length;
+		for (int i = 0; i < array.length; i++) {
+			l--;
+			if(i < array.length - 1){
+				if(array[i] != 1){
+					System.out.printf("%d*x**%d + ", array[i], l);
 				}
-				
+				else System.out.printf("x**%d + ", l);
 			}
-			else System.out.printf("%d = 0", array[i]);
+			else System.out.printf("%d = 0\n", array[i]); // i == array.length - 1
 		}
 	}
 }
