@@ -20,9 +20,7 @@ public class Program {
 		createFile("file2.txt", createPolinom(coefficients));
 		String polinomFromFile1 = getStringFromFile("file1.txt");
 		String polinomFromFile2 = getStringFromFile("file2.txt");
-		parsingPolinom(polinomFromFile);
-
-
+		//parsingPolinom(polinomFromFile);
 	}
 	
 	public static int getInt() {
@@ -90,5 +88,3 @@ public class Program {
         return res;
 	}
 }
-
-
