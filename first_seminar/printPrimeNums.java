@@ -23,6 +23,10 @@ public class Answer{
             }
             i += 1;
         }
+        // List<Integer> list = new ArrayList<>();
+        // Collections.addAll(list, primes);
+        // list.retainAll(0);
+        // primes = [i for i in primes if i != 0]
         int count = 0;
         for(int b = 0; b < N; b++){
             if (primes[b] != 0) {
