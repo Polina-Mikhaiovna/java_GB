@@ -1,16 +1,9 @@
-import java.time.LocalDateTime;
-
-
 public class Main {
     public static float answer = 0;
-	public static void main(String[] args) {
-		System.out.println(getCurentDateTime());
-		if (calculate('5', 3, 0) == false) System.out.println(answer);
+    public static void main(String[] args) {
+		System.out.println(new Helper().getCurrentDateTime());
+		if (!calculate('5', 3, 0)) System.out.println(answer);
 	}
-	
-	public static LocalDateTime getCurentDateTime() {
-    	return LocalDateTime.now();
-    }
 
     public static boolean calculate(char op, int a, int b) {
       // Введите свое решение ниже
@@ -26,7 +19,7 @@ public class Main {
         if (answer == -1) error = true;
       }
       else if(op == '*'){
-        answer = mult(a,b);
+        answer = multi(a,b);
       }
       else {
         System.out.printf("%s: '%s'\n", "Некорректный оператор", op);
@@ -48,7 +41,7 @@ public class Main {
     	}
     	else return (float)a / b;
     }
-    public static float mult(int a, int b){
+    public static float multi(int a, int b){
     	return (float)a * b;
 	}
 }

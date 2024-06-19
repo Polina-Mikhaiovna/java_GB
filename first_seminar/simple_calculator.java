@@ -6,49 +6,93 @@
 //     	return 0;
 //     }
 // }
+import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
-// public class Program {
+public class Main {
 	
-// 	public static void main(String[] args) {
-// 		int a = 0;
-//         char op = ' ';
-//         int b = 0;
+	public static void main(String[] args) {
+		int a = 0;
+        char op = ' ';
+        int b = 0;
 
-//         a = 3;
-//         op = '+';
-//         b = 7;
+        String task = getInputString("Enter task: ");
+        String[] numbers = parseString(task);
 
-// 		Calculator calculator = new Calculator();
-//         int result = calculator.calculate(op, a, b);
-//         System.out.println(result);
+		a = Integer.parseInt(numbers[0]);
+        op = task.charAt(numbers[0].length());
+        b = Integer.parseInt(numbers[1]);
+
+		Calculator calculator = new Calculator();
+        float result = calculator.calculate(op, a, b);
+        System.out.println(result);
+	}
 	
-	
-// 	// public static int getInt() {
-// 	// 	Scanner iScanner = new Scanner(System.in);
-// 	// 	System.out.printf("int k: ");
-// 	// 	int k = 0;
-// 	// 	if (iScanner.hasNextInt()) {
-// 	// 		k = iScanner.nextInt();
-// 	// 	}
-// 	// 	iScanner.close();
-// 	// 	return k;
-// 	}
-// }
+		public static String getInputString(String message) {
+			Scanner sc = new Scanner(System.in);
+        	System.out.printf(message);
+        	String str = "7+3";
+      	    if (sc.hasNextLine()) {
+      	        str = sc.nextLine();
+      	    } else {
+           		System.out.println("Извините, перезапустите программу и попробуйте снова!");
+        	}
+        	sc.close();
+        	return str;
+        }
 
-class Calculator {
-    public int calculate(char op, int a, int b) {
-    	if(op == '+'){
-    		return a + b;
-    	}
-    	else return 0;
-      // Введите свое решение ниже
-
-
-    }
+        public static String[] parseString(String task) {
+        	
+        	String str = task;
+        	//String[] operators = new String[] {"-","\\+","/","\\*"};
+			String[] numbers = str.split("[\\+-/\\*]");
+        	return numbers;
+        }
 }
 
-// Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
-public class Printer{ 
+
+class Calculator {
+    public float calculate(char op, int a, int b) {
+
+    float answer = 0;
+    if(op == '+'){
+        answer = sum(a,b);
+    }
+    else if(op == '-'){
+        answer = dif(a,b);
+    }
+    else if(op == '/'){
+        answer = div(a,b);
+    }
+    else if(op == '*'){
+        answer = mult(a,b);
+    }
+    else {
+        System.out.printf("%s: '%s'\n", "Некорректный оператор", op);
+    }
+    return answer;
+    }
+
+    public static float sum(int a, int b){
+    	return (float)a + b;
+    }
+
+    public static float dif(int a, int b){
+    	return (float)a - b;
+    }
+    public static float div(int a, int b){
+    	if (b == 0) {
+    		return -1;
+    	}
+    	else return (float)a / b;
+    }
+    public static float mult(int a, int b){
+    	return (float)a * b;
+	}
+}
+
+class Printer{ 
     public static void main(String[] args) { 
         int a = 0;
         char op = ' ';
@@ -66,7 +110,7 @@ public class Printer{
         }
 
         Calculator calculator = new Calculator();
-        int result = calculator.calculate(op, a, b);
+        float result = calculator.calculate(op, a, b);
         System.out.println(result);
     }
 }
