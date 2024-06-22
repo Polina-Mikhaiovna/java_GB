@@ -34,8 +34,9 @@ import java.util.Arrays;
 public class Directory {
 
 	public static void main(String[] args) {
-		String fileInDir = Arrays.toString(getFileNameInDir("."));
-		System.out.println(fileInDir);
+		writeFileNamesToFile("../../", "file.txt");
+		// String fileInDir = Arrays.toString(getFileNameInDir("."));
+		// System.out.println(fileInDir);
 	}
 
 	public static String[] getFileNameInDir(String path) {
@@ -52,6 +53,21 @@ public class Directory {
 			} else {System.out.println(dir.getName() + " is empty"); }
 		} else { System.out.println(dir.getName() + " not a directory"); }
 		return res;
+	}
+
+	public static void writeFileNamesToFile(String outpath, String inpath) {
+		String[] arr = getFileNameInDir(outpath);
+		System.out.println(Arrays.toString(arr));
+		try {
+			FileWriter fw = new FileWriter(inpath);
+			for(int i = 0; i < arr.length; i++) {
+				fw.write(arr[i] + "\n");
+			}
+			fw.flush();
+		}
+		catch (IOException ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 }
 
