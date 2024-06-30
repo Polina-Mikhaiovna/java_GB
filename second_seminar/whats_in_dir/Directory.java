@@ -2,41 +2,16 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
-
-// Java program to demonstrate the 
-// use of listFiles() function 
-
-// public class solution { 
-// 	public static void main(String args[]) 
-// 	{ 
-
-// 		// try-catch block to handle exceptions 
-// 		try { 
-
-// 			// Create a file object 
-// 			File f = new File("../../"); 
-
-// 			File[] files = f.listFiles(); 
-
-// 			System.out.println("Files are:"); 
-
-// 			// Display the names of the files 
-// 			for (int i = 0; i < files.length; i++) { 
-// 				System.out.println(files[i].getName()); 
-// 			} 
-// 		} 
-// 		catch (Exception e) { 
-// 			System.err.println(e.getMessage()); 
-// 		} 
-// 	} 
-// } 
+import java.util.logging.Logger;
+import java.io.FileInputStream;
+import java.util.logging.LogManager;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Directory {
-
+	private Logger logger = Log.log(Directory.class.getName()); 
 	public static void main(String[] args) {
 		writeFileNamesToFile("../../", "file.txt");
-		// String fileInDir = Arrays.toString(getFileNameInDir("."));
-		// System.out.println(fileInDir);
 	}
 
 	public static String[] getFileNameInDir(String path) {
@@ -63,12 +38,37 @@ public class Directory {
 			for(int i = 0; i < arr.length; i++) {
 				fw.write(arr[i] + "\n");
 			}
-			fw.flush();
+			fw.flush(); // принудительная запись в файл, до этого данные были в буфере
 		}
 		catch (IOException ex) {
-			System.out.println(ex.getMessage());
+			Log.logException(ex);
 		}
 	}
 }
 
 
+public class Log {
+	static {
+		try (FileInputStream in = new FileInputStream("../log.config")) {
+			LogManager.getLogManager().readConfiguration(in);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	public static Logger log(String className) {
+		return Logger.getLogger(className);
+	}
+
+	public static void logException(IOException ex) {
+        String logFilePath = "exception_log.txt"; // путь к файлу лога в корне проекта
+        try (FileWriter logWriter = new FileWriter(logFilePath, true)) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String timestamp = sdf.format(new Date());
+            logWriter.write(timestamp + " - " + ex.getMessage() + "\n");
+            logWriter.flush();
+        } catch (IOException logEx) {
+            System.out.println("Error writing to log file: " + logEx.getMessage());
+        }
+    }
+}

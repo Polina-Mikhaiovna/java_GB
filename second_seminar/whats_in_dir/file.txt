@@ -1,5 +1,0 @@
-.git
-first_lecture
-second_seminar
-.gitignore
-first_seminar
