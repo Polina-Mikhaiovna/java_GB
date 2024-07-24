@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-public  class Log {
+public class Log {
 	static {
 		try (FileInputStream in = new FileInputStream("../log.config")) {
 			LogManager.getLogManager().readConfiguration(in);

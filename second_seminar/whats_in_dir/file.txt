@@ -1,3 +1,6 @@
-test
-whats_in_dir
-log.config
+file.txt
+exception_log.txt
+Directory.class
+Log.java
+Log.class
+Directory.java
