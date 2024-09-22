@@ -126,6 +126,7 @@ public class Ex005_ArraysMethod {
  }
 }
 ```
+
 ```java
 import java.util.List;
 public class Ex006_ListOf {
@@ -142,7 +143,7 @@ public class Ex006_ListOf {
 ```
 
 
-##LinkedList
+## LinkedList
 
 Представляет собой двусвязный список.
 Список – гибкая структура данных, позволяющая легко менять свой
@@ -154,7 +155,7 @@ LinkedList нужен для небольшого количества
 встречаются чаще операций чтения.
 
 
-##HashMap
+## HashMap
 
 Определение хешей происходи про ключу по хеш-функциям, их можно определять по своему желанию.
 
@@ -200,7 +201,7 @@ Map<Integer, String> map1 = new HashMap<>(9, 1.0f);
 
 ##TreeMap
 
-Map упорядоченный по ключу, метод упорядочивания надо выбирать внимательно, особенно присложных ключах, например классах
+Map упорядоченный по ключу, метод упорядочивания надо выбирать внимательно, особенно при сложных ключах, например классах
 
 put(K,V) get(K) remove(K) descendingKeySet(V)
 descendingMap() tailMap() headMap() lastEntry() firstEntry()
