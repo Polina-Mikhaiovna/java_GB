@@ -27,15 +27,15 @@ public class GenerateCSV {
                            {"Alice", "25", "Los Angeles"},
                            {"Bob", "35", "Chicago"}
                            };
-        StringBuilder buildedCSV = new StringBuilder();
-        buildedCSV = generateCSV(headers, data);
-        String SBToStr = buildedCSV.toString();
-        String nameOfCsv = "DB.csv";
-        createFile(nameOfCsv, SBToStr);
+        String csv = new String();
+        csv = generateCSV(headers, data);
+        
+        String csvFileName = "DB.csv";
+        createFile(csvFileName, csv);
 
     }
 
-    public static StringBuilder generateCSV(String[] head, String[][] colums){
+    public static String generateCSV(String[] head, String[][] colums){
         StringBuilder buildedCSV = new StringBuilder();
         String tempStr = new String();
         tempStr = String.join(", ", head);
@@ -45,7 +45,7 @@ public class GenerateCSV {
             tempStr = String.join(", ", colums[i]);
                 buildedCSV = buildedCSV.append(tempStr);
         }
-        return buildedCSV;
+        return buildedCSV.toString();
     }
 
     public static void createFile(String name, String data) {
