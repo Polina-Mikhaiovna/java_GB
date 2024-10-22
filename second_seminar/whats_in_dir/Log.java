@@ -1,11 +1,8 @@
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.io.FileInputStream;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
-import java.util.logging.Level;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 public class Log {

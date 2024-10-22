@@ -7,8 +7,6 @@
 // час:минуты {минимальный элемент}, {максимальный элемент}.
 import java.io.File;
 import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -70,7 +68,7 @@ public class ArraysOperations {
             }
 	    }
     }
-    
+
     public static String curentDateTime() {
         StringBuilder dateTime = new StringBuilder();
         Date dateNow = new Date();

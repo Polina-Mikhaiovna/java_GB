@@ -2,7 +2,8 @@ import java.util.Scanner;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
-public class Program {
+public class test {
+	private static Object str;
 	public static void main(String[] args) {
 		var a = 123;
 		System.out.println(a); // 123
@@ -16,6 +17,7 @@ public class Program {
 		a = a-- - a--;
 		System.out.println(a);
 		getInputString("ведите пример");
+	}
 		
 		public static String getInputString(String message) {
 			Scanner sc = new Scanner(System.in);
@@ -28,7 +30,7 @@ public class Program {
            		System.out.println("Извините, перезапустите программу и попробуйте снова!");
         	}
         	sc.close();
-        	return str;
+        	return str.toString();
 
 
 //d = "mistake";

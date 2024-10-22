@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Answer{ 
+public class printPrimeNums{ 
     public static void main(String[] args) {
       printPrimeNums();
     }
