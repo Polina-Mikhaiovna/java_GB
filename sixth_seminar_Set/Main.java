@@ -3,15 +3,17 @@ package sixth_seminar_Set;
 import java.util.*;
 
 public class Main {
-    Cat cat = new Cat("Tom");
-    Cat cat1 = new Cat("Leo");
+    public static void main(String[] args) {
 
-    HashSet<Cat> cats = new HashSet<>();
+        Cat cat = new Cat("Tom");
+        Cat cat1 = new Cat("Leo");
 
-    cats.add(cat);
-    cats.add(cat1);
+        HashSet<Cat> cats = new HashSet<>();
 
-    System.out.println(cats);
-    
+        cats.add(cat);
+        cats.add(cat1);
+
+        System.out.println(cats);
+    }
+
 }
-
