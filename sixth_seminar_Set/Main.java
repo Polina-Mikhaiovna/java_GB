@@ -8,7 +8,7 @@ public class Main {
         Cat cat = new Cat("Tom");
         Cat cat1 = new Cat("Leo");
 
-        HashSet<Cat> cats = new HashSet<>();
+        Set<Cat> cats = new HashSet<>();
 
         cats.add(cat);
         cats.add(cat1);
